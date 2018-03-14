@@ -1,0 +1,30 @@
+git: 工作区--暂存区--代码库
+
+* git reset --hard HEAD^ //HEAD^表示上一个版本，HEAD^^表示上上个，以此类推。或者使用HEAD~100
+
+* git reflog  //记录每一次的提交
+
+* git reset HEAD file //把暂存区的修改恢复到工作区
+
+* git checkout -- file //把工作区的修改丢弃
+
+* 查看分支：git branch
+
+* 创建分支：git branch <name>
+
+* 切换分支：git checkout <name>
+
+* 创建+切换分支：git checkout -b <name>
+
+* 合并某分支到当前分支：git merge <name>
+
+* 删除分支：git branch -d <name>
+
+* git merge dev 会直接合并dev 分支，不会产生commit信息，
+  如果需要commit信息，则应该放弃使用fast-forward,使用git merge --no-ff dev -m "xxx"
+
+* 关于stash,使用git stash暂存工作区的修改，git stash list查看stash历史，
+  一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+  另一种方式是用git stash pop，恢复的同时把stash内容也删了
+  你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
+  $ git stash apply stash@{0}
